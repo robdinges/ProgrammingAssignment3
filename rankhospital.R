@@ -27,7 +27,8 @@ rankhospital <- function(state, outcomename, num='best') {
                 a <- outcome[outcome[7]==state,c(2,7,colnr)]
                 a[,3] <- as.numeric(a[,3])
                 a <- na.omit(a)
-                b <- a[order(-rank(a[3]),a[1],decreasing=TRUE),]
+                #b <- a[order(-rank(a[3]),a[1],decreasing=TRUE),]
+                b <- a[order((a[3]),a[1]),]
                 if (num == 'best') { num = 1 }
                 else if (num == 'worst') { num = nrow(b)}
                 #print(b[num,1])
@@ -37,6 +38,7 @@ rankhospital <- function(state, outcomename, num='best') {
                 return
         }
         
-        b[num,1]
+ 
+               b[num,1]
                 
 }
